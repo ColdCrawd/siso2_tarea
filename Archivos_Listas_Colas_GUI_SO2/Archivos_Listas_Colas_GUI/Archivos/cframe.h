@@ -15,6 +15,7 @@
 //#include <vector>
 #include <alumno.h>
 #include <cola.h>
+#include <model.h>
 
 using std::vector;
 using std::ifstream;
@@ -36,6 +37,8 @@ public:
     void Cargar();
     void MostrarC();
     void MostrarL();
+    void MostrarListas();
+    void setListas();
     void Menu();
 
 private slots:
@@ -47,12 +50,22 @@ private slots:
     void on_RB_EliminaRaiz_clicked();
 
 private:
+
+    //lista <model<alumno*>> Disponibles;
+    //lista <model<alumno*>> Ocupados;
+    //nodo <model<alumno*>> *N;
+    //int Di, Oc;
+
+    lista<model*> L;
+    nodo<model*>*N;
+    int Di, Oc;
+
     Ui::cframe *ui;
     string Nombre;
     //vector <alumno*> V;
     cola <alumno*> F;
-    lista <alumno*> L;
-    nodo <alumno*> *N;
+    //lista <alumno*> L;
+    //nodo <alumno*> *N;
     int C,Li;
     char M;
     alumno *A;

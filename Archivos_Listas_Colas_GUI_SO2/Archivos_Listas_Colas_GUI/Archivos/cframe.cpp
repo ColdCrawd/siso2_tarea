@@ -14,13 +14,15 @@ cframe::cframe(QWidget *parent)
     ui->Le_Celular->setDisabled(true);
     ui->RB_Exportar->setDisabled(true);
     ui->Btn_Aceptar->setDisabled(true);
-    ui->TW_Mostrar->setColumnCount(3);
+    ui->TW_Mostrar->setColumnCount(4);
     ui->TW_Disponible->setColumnCount(3);
-    ui->TW_Mostrar->setHorizontalHeaderLabels(QStringList()<<"Cuenta"<<"Nombre"<<"Celular");
-    ui->TW_Disponible->setHorizontalHeaderLabels(QStringList()<<"Cuenta"<<"Nombre"<<"Celular");
+    ui->TW_Mostrar->setHorizontalHeaderLabels(QStringList()<<"Libres"<<"Incio"<<"Fin"<<"Tamaño");
+    ui->TW_Disponible->setHorizontalHeaderLabels(QStringList()<<"Inicio"<<"Fin"<<"Tamaño");
     //Menu();
-    Cargar();
-    MostrarC();
+    //Cargar();
+    //MostrarC();
+    setListas();
+    MostrarListas();
 }
 
 cframe::~cframe()
@@ -48,6 +50,7 @@ void cframe::Cargar()
     }
 }
 
+/*
 void cframe::MostrarC()
 {
     N = F.RaizPtr;
@@ -64,7 +67,7 @@ void cframe::MostrarC()
 
 void cframe::MostrarL()
 {
-    N = L.RaizPtr;
+    N = Disponibles.RaizPtr;
     ui->TW_Disponible->setRowCount(Li);
     for (int i=0; N!=0; i++, N=N->SigPtr) {
         QTableWidgetItem *cu = new QTableWidgetItem(QString::fromStdString(N->datos->getCuenta()));
@@ -75,6 +78,57 @@ void cframe::MostrarL()
         ui->TW_Disponible->setItem(i,2,ce);
     }
 }
+*/
+
+void cframe::MostrarListas()
+{
+    N = L.RaizPtr;
+    ui->TW_Mostrar->setRowCount(Di);
+    ui->TW_Disponible->setRowCount(Oc);
+    int Total = 0, DiC=0, OcC=0;
+    for (int i=0; N!=0; i++, N=N->SigPtr) {
+        if(N->datos->disponible){
+            QTableWidgetItem *cu = new QTableWidgetItem(QString::fromStdString(N->datos->nombre));
+            QTableWidgetItem *no = new QTableWidgetItem(QString::number(Total));
+            Total += N->datos->tam;
+            QTableWidgetItem *ce = new QTableWidgetItem(QString::number(Total - 1));
+            QTableWidgetItem *ta = new QTableWidgetItem(QString::number(N->datos->tam));
+            ui->TW_Mostrar->setItem(DiC,0,cu);
+            ui->TW_Mostrar->setItem(DiC,1,no);
+            ui->TW_Mostrar->setItem(DiC,2,ce);
+            ui->TW_Mostrar->setItem(DiC,3,ta);
+            DiC++;
+        }else{
+            QTableWidgetItem *no = new QTableWidgetItem(QString::number(Total));
+            Total += N->datos->tam;
+            QTableWidgetItem *ce = new QTableWidgetItem(QString::number(Total - 1));
+            QTableWidgetItem *ta = new QTableWidgetItem(QString::number(N->datos->tam));
+
+            ui->TW_Disponible->setItem(OcC,0,no);
+            ui->TW_Disponible->setItem(OcC,1,ce);
+            ui->TW_Disponible->setItem(OcC,2,ta);
+            OcC++;
+        }
+
+    }
+}
+
+void cframe::setListas()
+{
+
+    L.insertarAlFrente(new model("a",100,true));
+    L.insertarAlFinal(new model("",100,false));
+    L.insertarAlFinal(new model("b",200,true));
+    L.insertarAlFinal(new model("",100,false));
+    L.insertarAlFinal(new model("c",75,true));
+    L.insertarAlFinal(new model("d",125,true));
+    L.insertarAlFinal(new model("",150,false));
+    L.insertarAlFinal(new model("e",50,true));
+    L.insertarAlFinal(new model("f",100,true));
+    Di=6;
+    Oc=3;
+}
+
 
 void cframe::Menu()
 {
@@ -109,15 +163,15 @@ void cframe::on_Btn_Aceptar_clicked()
             ui->Le_Nombre->clear();
             ui->Le_Celular->clear();
             ui->TW_Mostrar->clearContents();
-            MostrarC();
+            //MostrarC();
         }
     }else if(ui->RB_EliminaRaiz->isChecked()){
         F.Desencolar(A);
-        L.insertarEnPenultimo(A);
+        //L.insertarEnPenultimo(A);
         C--;
         Li++;
-        MostrarC();
-        MostrarL();
+        //MostrarC();
+        //MostrarL();
         QMessageBox::critical(this,".:.","Le di Jabón a: "
                               + QString::fromStdString(A->getCuenta()) + " "
                               + QString::fromStdString(A->getNombre()) + " "

@@ -168,7 +168,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Cola de Procesos:</string>
+     <string>Disponibles</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -181,7 +181,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Lista de Disponibles:</string>
+     <string>Ocupados</string>
     </property>
    </widget>
    <widget class="QTableWidget" name="TW_Disponible">
@@ -201,7 +201,7 @@
      <x>0</x>
      <y>0</y>
      <width>1236</width>
-     <height>26</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

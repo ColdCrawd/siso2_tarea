@@ -18,6 +18,7 @@ HEADERS += \
     cframe.h \
     cola.h \
     lista.h \
+    model.h \
     nodo.h
 
 FORMS += \
