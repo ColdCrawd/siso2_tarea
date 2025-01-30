@@ -10,10 +10,10 @@ cframe::cframe(QWidget *parent)
     Nombre = "Alumnos.xls";
     C = Li = 0;
 
-    ui->Le_Nombre->setDisabled(true);
-    ui->Le_Celular->setDisabled(true);
-    ui->RB_Exportar->setDisabled(true);
-    ui->Btn_Aceptar->setDisabled(true);
+    //ui->Le_Nombre->setDisabled(true);
+    //ui->Le_Celular->setDisabled(true);
+    //ui->RB_Exportar->setDisabled(true);
+    //ui->Btn_Aceptar->setDisabled(true);
     ui->TW_Mostrar->setColumnCount(4);
     ui->TW_Disponible->setColumnCount(3);
     ui->TW_Mostrar->setHorizontalHeaderLabels(QStringList()<<"Libres"<<"Incio"<<"Fin"<<"Tamaño");
@@ -147,6 +147,7 @@ void cframe::Menu()
 void cframe::on_Btn_Aceptar_clicked()
 {
 
+    /*
     if(ui->RB_Exportar->isChecked()){
         ofstream Archivo(Nombre.data(),ios::out|ios::app);
 
@@ -178,37 +179,39 @@ void cframe::on_Btn_Aceptar_clicked()
                               + QString::fromStdString(A->getNombre()) + " "
                               + QString::fromStdString(A->getCelular()));
     }
+*/
 }
+
 
 
 void cframe::on_RB_Exportar_clicked()
 {
-    ui->Btn_Aceptar->setEnabled(true);
+    //ui->Btn_Aceptar->setEnabled(true);
 }
 
 
 void cframe::on_RB_EliminaRaiz_clicked()
 {
-    ui->Btn_Aceptar->setEnabled(true);
+   // ui->Btn_Aceptar->setEnabled(true);
 }
 
 
 void cframe::on_Le_Cuenta_textChanged(const QString &arg1)
 {
-    ui->Le_Nombre->setEnabled(true);
+   // ui->Le_Nombre->setEnabled(true);
 }
 
 
 void cframe::on_Le_Nombre_textChanged(const QString &arg1)
 {
-    ui->Le_Celular->setEnabled(true);
+    //ui->Le_Celular->setEnabled(true);
 }
 
 
 void cframe::on_Le_Celular_textChanged(const QString &arg1)
 {
-    ui->RB_Exportar->setEnabled(true);
-    ui->RB_EliminaRaiz->setEnabled(true);
+    //ui->RB_Exportar->setEnabled(true);
+    //ui->RB_EliminaRaiz->setEnabled(true);
 }
 
 void cframe::asignarBloque(int Byte){
