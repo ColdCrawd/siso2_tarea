@@ -56,6 +56,8 @@ private slots:
 
     void on_RB_PrimerA_clicked();
 
+    void on_Btn_Reset_clicked();
+
 private:
 
     //lista <model<alumno*>> Disponibles;

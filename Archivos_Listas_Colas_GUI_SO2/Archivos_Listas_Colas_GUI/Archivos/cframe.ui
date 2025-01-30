@@ -125,6 +125,19 @@
      <string>Mejor Ajuste</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="Btn_Reset">
+    <property name="geometry">
+     <rect>
+      <x>1000</x>
+      <y>40</y>
+      <width>121</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Resetear Todo</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

@@ -239,7 +239,11 @@ void cframe::on_Btn_Asignar_clicked()
     if(ui->Sb_Bytes->value() != 0){
         if(ui->RB_PrimerA->isChecked()){
             asignarBloque(ui->Sb_Bytes->value());
+
         }
+
+
+        ui->Sb_Bytes->setValue(0);
     }else{
         QMessageBox::critical(this,".:.Error.:.","Esta intentando ingresar 0 BYTES!!!");
     }
@@ -256,5 +260,14 @@ void cframe::on_RB_MejorA_clicked()
 void cframe::on_RB_PrimerA_clicked()
 {
     ui->RB_MejorA->setChecked(false);
+}
+
+
+void cframe::on_Btn_Reset_clicked()
+{
+    ui->RB_PrimerA->setChecked(true);
+    ui->RB_MejorA->setChecked(false);
+    setListas();
+    MostrarListas();
 }
 
