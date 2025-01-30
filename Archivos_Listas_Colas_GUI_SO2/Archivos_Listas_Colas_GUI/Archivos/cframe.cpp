@@ -87,7 +87,9 @@ void cframe::MostrarListas()
     ui->TW_Mostrar->setRowCount(Di);
     ui->TW_Disponible->setRowCount(Oc);
     int Total = 0, DiC=0, OcC=0;
+    qDebug() << "Aqui";
     for (int i=0; N!=0; i++, N=N->SigPtr) {
+        qDebug() << N->datos->tam << N->datos->nombre;
         if(N->datos->disponible){
             QTableWidgetItem *cu = new QTableWidgetItem(QString::fromStdString(N->datos->nombre));
             QTableWidgetItem *no = new QTableWidgetItem(QString::number(Total));
@@ -116,7 +118,6 @@ void cframe::MostrarListas()
 
 void cframe::setListas()
 {
-
     L.insertarAlFrente(new model("a",100,true));
     L.insertarAlFinal(new model("",100,false));
     L.insertarAlFinal(new model("b",200,true));
@@ -128,6 +129,19 @@ void cframe::setListas()
     L.insertarAlFinal(new model("f",100,true));
     Di=6;
     Oc=3;
+}
+
+void cframe::Borrar(){
+    model* tmp2;
+
+    if(L.RaizPtr != nullptr){
+        N = L.RaizPtr;
+        while(N != nullptr){
+            N = N->SigPtr;
+            L.eliminarDelFrente(tmp2);
+        }
+        N = nullptr;
+    }
 }
 
 
@@ -234,12 +248,42 @@ void cframe::asignarBloque(int Byte){
     }
 }
 
+void cframe::MejorA(int Byte){
+    N = L.RaizPtr;
+
+    if(L.RaizPtr != nullptr){
+        N = L.RaizPtr;
+        nodo<model*>* Mejor;
+        int MNum = 1000;
+        while(N != nullptr){
+            if(MNum > N->datos->tam - Byte && N->datos->tam - Byte >= 0){
+                MNum = N->datos->tam - Byte;
+                Mejor = N;
+            }
+            N = N->SigPtr;
+        }
+        //L.insertarFrente(Mejor);
+        int tami = Mejor->datos->tam;
+        nodo<model*> *temp = L.obtenerNuevoNodo(new model(Mejor->datos->nombre, tami - Byte, true));
+        temp->SigPtr = Mejor->SigPtr;
+        Mejor->SigPtr = temp;
+        Mejor->datos->setTam(Byte);
+        Mejor->datos->setDisponible(false);
+        //if(Mejor->datos->tam == 0)
+
+        Oc++;
+        MostrarListas();
+    }
+}
+
 void cframe::on_Btn_Asignar_clicked()
 {
     if(ui->Sb_Bytes->value() != 0){
         if(ui->RB_PrimerA->isChecked()){
             asignarBloque(ui->Sb_Bytes->value());
 
+        }else {
+            MejorA(ui->Sb_Bytes->value());
         }
 
 
@@ -267,6 +311,7 @@ void cframe::on_Btn_Reset_clicked()
 {
     ui->RB_PrimerA->setChecked(true);
     ui->RB_MejorA->setChecked(false);
+    Borrar();
     setListas();
     MostrarListas();
 }

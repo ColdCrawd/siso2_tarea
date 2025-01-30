@@ -41,6 +41,8 @@ public:
     void setListas();
     void asignarBloque(int Byte);
     void Menu();
+    void Borrar();
+    void MejorA(int Byte);
 
 private slots:
     void on_Btn_Aceptar_clicked();

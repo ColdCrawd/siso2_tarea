@@ -14,130 +14,70 @@
    <string>cframe</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTableWidget" name="TW_Mostrar">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>180</y>
-      <width>551</width>
-      <height>331</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="Lbl_Cola">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>160</y>
-      <width>111</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Disponibles</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>850</x>
-      <y>160</y>
-      <width>121</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ocupados</string>
-    </property>
-   </widget>
-   <widget class="QTableWidget" name="TW_Disponible">
-    <property name="geometry">
-     <rect>
-      <x>630</x>
-      <y>180</y>
-      <width>551</width>
-      <height>331</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>50</y>
-      <width>51</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Bytes:</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Btn_Asignar">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>40</y>
-      <width>83</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Asignar</string>
-    </property>
-   </widget>
-   <widget class="QSpinBox" name="Sb_Bytes">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>40</y>
-      <width>71</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="maximum">
-     <number>999</number>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="RB_PrimerA">
-    <property name="geometry">
-     <rect>
-      <x>680</x>
-      <y>30</y>
-      <width>112</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Primer Ajuste</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="RB_MejorA">
-    <property name="geometry">
-     <rect>
-      <x>680</x>
-      <y>60</y>
-      <width>112</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Mejor Ajuste</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Btn_Reset">
-    <property name="geometry">
-     <rect>
-      <x>1000</x>
-      <y>40</y>
-      <width>121</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Resetear Todo</string>
-    </property>
-   </widget>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0" rowspan="2">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Bytes:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1" rowspan="2">
+     <widget class="QSpinBox" name="Sb_Bytes">
+      <property name="maximum">
+       <number>999</number>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2" rowspan="2">
+     <widget class="QPushButton" name="Btn_Asignar">
+      <property name="text">
+       <string>Asignar</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QRadioButton" name="RB_PrimerA">
+      <property name="text">
+       <string>Primer Ajuste</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5" rowspan="2">
+     <widget class="QPushButton" name="Btn_Reset">
+      <property name="text">
+       <string>Resetear Todo</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="QRadioButton" name="RB_MejorA">
+      <property name="text">
+       <string>Mejor Ajuste</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="2">
+     <widget class="QLabel" name="Lbl_Cola">
+      <property name="text">
+       <string>Disponibles</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="4">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Ocupados</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0" colspan="3">
+     <widget class="QTableWidget" name="TW_Mostrar"/>
+    </item>
+    <item row="3" column="3" colspan="3">
+     <widget class="QTableWidget" name="TW_Disponible"/>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

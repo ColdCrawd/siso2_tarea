@@ -1,5 +1,6 @@
 #ifndef lista_H
 #define lista_H
+#include "model.h"
 #include <nodo.h>
 #include <iostream>
 using std::cout;
@@ -20,6 +21,8 @@ public:
     bool eliminarDelFinal( Tipo & );
     bool estaVacia() const;
     void imprimir() const;
+
+    bool eliminar( Tipo & );
 private:
     nodo< Tipo > *RaizPtr;
     nodo< Tipo > *FinPtr;
@@ -94,6 +97,8 @@ void lista< Tipo >::insertarAlFinal( const Tipo &valor ){
     }
 }
 
+
+
 template< typename Tipo >
 bool lista< Tipo >::eliminarDelFrente( Tipo &valor ){
     if ( estaVacia() )
@@ -110,6 +115,10 @@ bool lista< Tipo >::eliminarDelFrente( Tipo &valor ){
     }
 }
 
+template< typename Tipo >
+bool lista<Tipo>::eliminar(Tipo & valor){
+
+}
 
 template< typename Tipo >
 bool lista< Tipo >::eliminarDelPenultimo( Tipo &valor ){
