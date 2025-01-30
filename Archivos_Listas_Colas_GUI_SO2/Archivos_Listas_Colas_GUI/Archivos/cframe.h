@@ -39,6 +39,7 @@ public:
     void MostrarL();
     void MostrarListas();
     void setListas();
+    void asignarBloque(int Byte);
     void Menu();
 
 private slots:
@@ -48,6 +49,12 @@ private slots:
     void on_Le_Nombre_textChanged(const QString &arg1);
     void on_Le_Celular_textChanged(const QString &arg1);
     void on_RB_EliminaRaiz_clicked();
+
+    void on_Btn_Asignar_clicked();
+
+    void on_RB_MejorA_clicked();
+
+    void on_RB_PrimerA_clicked();
 
 private:
 

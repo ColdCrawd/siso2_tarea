@@ -14,75 +14,6 @@
    <string>cframe</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="Lbl_Cuenta">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>20</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Cuenta:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="Lbl_Nombre">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>50</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Nombre:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="Lbl_Celular">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>80</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Celular:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="Le_Cuenta">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>20</y>
-      <width>113</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="Le_Nombre">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>50</y>
-      <width>113</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="Le_Celular">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>80</y>
-      <width>113</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QTableWidget" name="TW_Mostrar">
     <property name="geometry">
      <rect>
@@ -91,71 +22,6 @@
       <width>551</width>
       <height>331</height>
      </rect>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="RB_Exportar">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>26</y>
-      <width>141</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Exportar</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="RB_EliminaRaiz">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>60</y>
-      <width>131</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Eliminar del Inicio</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Btn_Aceptar">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>140</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Aceptar</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="RB_EliminaPenultimo">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>80</y>
-      <width>161</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Eliminar del Penultimo</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="RB_EliminaFin">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>100</y>
-      <width>131</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Eliminar del Final</string>
     </property>
    </widget>
    <widget class="QLabel" name="Lbl_Cola">
@@ -192,6 +58,71 @@
       <width>551</width>
       <height>331</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>50</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Bytes:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Btn_Asignar">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>40</y>
+      <width>83</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Asignar</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="Sb_Bytes">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>40</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>999</number>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="RB_PrimerA">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>30</y>
+      <width>112</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Primer Ajuste</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="RB_MejorA">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>60</y>
+      <width>112</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Mejor Ajuste</string>
     </property>
    </widget>
   </widget>

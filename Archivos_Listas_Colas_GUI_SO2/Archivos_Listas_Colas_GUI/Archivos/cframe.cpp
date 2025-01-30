@@ -23,6 +23,7 @@ cframe::cframe(QWidget *parent)
     //MostrarC();
     setListas();
     MostrarListas();
+    ui->RB_PrimerA->setChecked(true);
 }
 
 cframe::~cframe()
@@ -208,5 +209,49 @@ void cframe::on_Le_Celular_textChanged(const QString &arg1)
 {
     ui->RB_Exportar->setEnabled(true);
     ui->RB_EliminaRaiz->setEnabled(true);
+}
+
+void cframe::asignarBloque(int Byte){
+    N = L.RaizPtr;
+    bool SeHizo = false;
+    for(int i=0; N!=0; i++, N=N->SigPtr){
+        if(N->datos->disponible){
+            if(Byte <= N->datos->tam){
+                N->datos->disponible = false;
+                Di--;
+                Oc++;
+                MostrarListas();
+                QMessageBox::information(this,".:.Éxito.:.","Se ha ingresado correctamente!!!");
+                return;
+            }
+        }
+    }
+    if(!SeHizo){
+        QMessageBox::critical(this,".:.Error.:.","No hay bloque disponible para esa cantidad de Bytes!!!");
+    }
+}
+
+void cframe::on_Btn_Asignar_clicked()
+{
+    if(ui->Sb_Bytes->value() != 0){
+        if(ui->RB_PrimerA->isChecked()){
+            asignarBloque(ui->Sb_Bytes->value());
+        }
+    }else{
+        QMessageBox::critical(this,".:.Error.:.","Esta intentando ingresar 0 BYTES!!!");
+    }
+}
+
+
+void cframe::on_RB_MejorA_clicked()
+{
+    ui->RB_PrimerA->setChecked(false);
+
+}
+
+
+void cframe::on_RB_PrimerA_clicked()
+{
+    ui->RB_MejorA->setChecked(false);
 }
 
